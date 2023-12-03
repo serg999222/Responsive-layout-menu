@@ -7,28 +7,55 @@ let isActive
 document.addEventListener("DOMContentLoaded", function () {
 	let navItems = document.querySelectorAll('.header_nav_item');
 	navItems.forEach(navItem => {
+		navItem.addEventListener('click', function (event) {
+			// Перевірити, чи є в елементі li вкладений список ol
 
-		navItem.addEventListener('click', function () {
-			document.querySelector('.header_nav').classList.toggle('active');
-			navItems.forEach(function (item) {
-				item.classList.toggle('active');
-			});
-			document.querySelectorAll('.header_burger_item').forEach(item => {
-				item.classList.toggle('active');
-				if (item.classList.contains('burger_item1')) {
-					item.classList.toggle('rotate-45deg');
-				}
-				if (item.classList.contains('burger_item2')) {
-					item.classList.toggle('anim');
-				}
-				if (item.classList.contains('burger_item3')) {
-					item.classList.toggle('rotate--45deg');
-				}
-			});
+			let olElement = navItem.querySelector('.ol_item');
+			if (!olElement) {
+
+				document.querySelector('.header_nav').classList.toggle('active');
+				navItems.forEach(item => {
+					item.classList.toggle('active');
+				});
+				document.querySelectorAll('.header_burger_item').forEach(item => {
+					item.classList.toggle('active');
+					if (item.classList.contains('burger_item1')) {
+						item.classList.toggle('rotate-45deg');
+					}
+					if (item.classList.contains('burger_item2')) {
+						item.classList.toggle('anim');
+					}
+					if (item.classList.contains('burger_item3')) {
+						item.classList.toggle('rotate--45deg');
+					}
+				});
+			} else {
+				navItem.querySelectorAll('.ol_item').forEach(item => {
+					item.classList.toggle('active')
+					item.addEventListener('click', () => {
+						document.querySelector('.header_nav').classList.toggle('active');
+						navItems.forEach(item => {
+							item.classList.toggle('active');
+						});
+						document.querySelectorAll('.header_burger_item').forEach(item => {
+							item.classList.toggle('active');
+							if (item.classList.contains('burger_item1')) {
+								item.classList.toggle('rotate-45deg');
+							}
+							if (item.classList.contains('burger_item2')) {
+								item.classList.toggle('anim');
+							}
+							if (item.classList.contains('burger_item3')) {
+								item.classList.toggle('rotate--45deg');
+							}
+						});
+					})
+				})
+			}
 		});
-
 	});
 });
+
 
 
 function someFunk() {
@@ -58,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 	let carts = document.querySelectorAll('.cart_image');
