@@ -103,6 +103,9 @@ body {
 	color: aliceblue;
 	font-family: var(--fontOpen);
 	background-color: rgba(0, 0, 0, 0.9);
+	box-sizing: border-box;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 
@@ -125,57 +128,72 @@ body {
 	}
 }
 
+.button_up {
+	padding: 10px;
+	border-radius: 50%;
+	background-color: yellowgreen;
+	color: aliceblue;
+	font-size: calc(var(--index) * 2);
+	width: calc(var(--index) * 4);
+	height: auto;
+	position: fixed;
+	bottom: 2vh;
+	right: -20vw;
+	opacity: 0.7;
+	transition: all 1s;
+}
+
 header {
 
-	height: 100vh;
+	height: 90vh;
 
 }
 
 @media(max-width:1400px) {
 	header {
-		height: 145vh;
+		height: 85vh;
 	}
 }
 
 @media(max-width:1200px) {
 	header {
-		height: 125vh;
+		height: 85vh;
 	}
 }
 
 @media(max-width:1000px) {
 	header {
-		height: 110vh;
+		height: 85vh;
 	}
 }
 
 @media(max-width:850px) {
 	header {
-		height: 100vh;
+		height: 85vh;
 	}
 }
 
 @media(max-width:720px) {
 	header {
-		height: 90vh;
+		height: 75vh;
 	}
 }
 
 @media(max-width:600px) {
 	header {
-		height: 80vh;
+		height: 65vh;
 	}
 }
 
 @media(max-width:500px) {
 	header {
-		height: 70vh;
+		height: 55vh;
 	}
 }
 
 @media(max-width:400px) {
 	header {
-		height: 65vh;
+		height: 45vh;
 	}
 }
 
@@ -517,7 +535,7 @@ main {
 	position: relative;
 	/*max-width: calc(var(--index) * 20);*/
 	max-width: calc(var(--index) * 20);
-	min-width: calc(var(--index) * 19);
+	min-width: calc(var(--index) * 20);
 	align-items: center;
 	border-bottom: 3px solid white;
 	border-right: 3px solid white;
@@ -526,7 +544,17 @@ main {
 
 }
 
+@media(max-width:310px) {
+	.cart {
+		min-width: calc(var(--index) * 17);
+	}
+}
 
+@media(max-width:1330px) {
+	.cart.odd {
+		margin-left: 100px;
+	}
+}
 
 @media(max-width:741px) {
 	.cart.odd {
@@ -615,15 +643,15 @@ main {
 		width: calc(var(--index) * 8.5);
 		height: calc(var(--index) * 8.5);
 		top: -25px;
-		left: -45px;
+		left: -55px;
 	}
 
 }
 
 @media(max-width:633px) {
 	.cart_image {
-		width: calc(var(--index) * 9.5);
-		height: calc(var(--index) * 9.5);
+		width: calc(var(--index) * 8.5);
+		height: calc(var(--index) * 8.5);
 		top: -15px;
 		left: -55px;
 	}
@@ -632,8 +660,8 @@ main {
 
 @media(max-width:530px) {
 	.cart_image {
-		width: calc(var(--index) * 10);
-		height: calc(var(--index) * 10);
+		width: calc(var(--index) * 8.5);
+		height: calc(var(--index) * 8.5);
 		top: -15px;
 		left: -40px;
 	}

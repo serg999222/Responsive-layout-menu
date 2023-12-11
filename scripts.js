@@ -3,6 +3,23 @@ let burger = document.querySelector('.header_burger').addEventListener('click', 
 let menu = document.querySelector('.header_nav');
 
 let isActive
+//поява кнопки при скролі
+window.addEventListener('scroll', () => {
+	var scrollPosition = window.scrollY;
+	if (scrollPosition > 200) {
+		document.querySelector('.button_up').style.right = '2vw';
+
+	}
+	if (scrollPosition < 200) {
+		document.querySelector('.button_up').style.right = '-20vw';
+
+	}
+
+})
+
+document.querySelector('.button_up').addEventListener('click', () => {
+	window.scrollTo(0, 0);
+})
 
 document.addEventListener("DOMContentLoaded", function () {
 	let navItems = document.querySelectorAll('.header_nav_item');
